@@ -11357,7 +11357,7 @@ fadeoutToWhiteWithDelay:
 fastFadeoutToWhite:
 	ld a,$01
 	ld (wPaletteThread_mode),a
-	ld a,$03
+	ld a,$5
 	jr ++
 ;;
 fadeoutToWhite:

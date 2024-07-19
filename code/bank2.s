@@ -3027,7 +3027,8 @@ b2_updateMenus:
 	or b
 	ret nz
 
-	call playHeartBeepAtInterval
+    ; disable heart beep
+	;call playHeartBeepAtInterval
 	ld a,(wKeysJustPressed)
 	and BTN_START | BTN_SELECT
 	ret z

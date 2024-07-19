@@ -145,11 +145,42 @@ checkUseItems:
 .endif
 
 @checkAB:
-	ldde BTN_A, <wInventoryA
+    ; de = BTN_A.wInventoryA
+	 ldde BTN_A, <wInventoryA
+    ;ldde BTN_A, $16
+
 	call checkItemUsed
 @checkB:
+    ; try to use the bracelet
+    ; but first check that it is obtained
+    ld a, $16 ; 0x16 = bracelet
+    call checkTreasureObtained
+
+    ; if bracelet is not obtained, skip the code
+    jr nc, @originalBCode
+    
+    ; e = *inventoryB
+    ld hl, wInventoryB
+    ld e, (hl)
+    push de
+
+    ; *inventoryB = 0x16
+    ld e, $16
+    ld (hl), e
+	
+    ldde BTN_B, <wInventoryB
+	call checkItemUsed
+
+    ; restore actual inventoryB item
+    pop de
+    ld hl, wInventoryB
+    ld (hl), e
+
+@originalBCode
+    ; standard code
 	ldde BTN_B, <wInventoryB
 	call checkItemUsed
+
 
 	; Update all "parent items"
 @updateParentItems:

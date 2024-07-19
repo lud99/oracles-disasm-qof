@@ -1,3 +1,9 @@
+### Changes
+- Can use the bracelet with the B button without having it equipped
+- Disabled heart beeping
+- Slightly sped up the menu transition
+
+
 ## About oracles-disasm
 
 This is a complete, documented disassembly of Oracle of Ages and Seasons for the Gameboy

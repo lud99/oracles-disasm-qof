@@ -1,4 +1,4 @@
-### Changes
+# Changes in this fork
 - Can use the bracelet with the B button without having it equipped
 - Disabled heart beeping
 - Slightly sped up the menu transition
